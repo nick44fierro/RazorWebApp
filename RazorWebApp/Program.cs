@@ -1,7 +1,14 @@
+using Microsoft.EntityFrameworkCore;
+using RazorWebApp.Data;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+// Add services to the container. Extract and use w/ help of dependency injection
 builder.Services.AddRazorPages();
+builder.Services.AddDbContext<ApplicationDbContext>(options=>options.UseSqlServer( // Add DbContext as a service
+        // GetConnectionString looks for keyname in appsettings.json
+        builder.Configuration.GetConnectionString("DefaultConnection")
+    ));
 
 var app = builder.Build();
 

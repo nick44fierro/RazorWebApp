@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿// backend code for view/page
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace RazorWebApp.Pages
@@ -12,6 +13,7 @@ namespace RazorWebApp.Pages
             _logger = logger;
         }
 
+        // handler in Razor vs. action method in MVC
         public void OnGet()
         {
 
